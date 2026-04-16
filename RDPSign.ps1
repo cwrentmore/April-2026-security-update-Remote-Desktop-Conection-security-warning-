@@ -9,7 +9,11 @@
 # ==============================================================================
 
 # 1. Configuration
-$rdpFile = "C:\Users\Desktop\RDPFILENAME.rdp"
+
+# Resolve the current signed in user's Desktop path
+$desktopPath = [Environment]::GetFolderPath('Desktop')
+$rdpFile = Join-Path $desktopPath 'Azure\asgc-data.rdp'
+
 $certSubjectName = "CompanyNameIT-RDP"
 $certSubject = "CN=$certSubjectName"
 
